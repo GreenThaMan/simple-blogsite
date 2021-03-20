@@ -1,0 +1,65 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body style="background-color: #222629;">
+    <section class="w-100 mb-5">
+        <div class="mx-auto">
+            <h1 class="text-center pb-3">
+                Tengis Buyantogtokh
+            </h1>
+            <ul class="nav justify-content-center mt-5">
+                <li class="nav-item pr-2">
+                    <a class="nav-link" id="highlight" href="/blog_index">Home</a>
+                </li>
+                <li class="nav-item pr-2">
+                    <a class="nav-link" href="/blog_index/about">About</a>
+                </li>
+                <li class="nav-item pr-2">
+                    <a class="nav-link" href="/blog_index/create">Create</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/blog_index/contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="w-100">
+        <% @posts.each do |post| %>
+            <div class="w-100 post mb-4 pl-5 pr-5 pt-5">
+                <div class="h4 title text-center" onclick="location.href='/blog_index/show/<%= post.id %>'">
+                    <%= post.title %>
+                </div>
+                <div class="mt-4 subtext text-center">
+                    <%= 'By ' + post.author + ', on ' + post.created_at.strftime("%B #{post.created_at.day.ordinalize}, %Y") %>
+                </div>
+                <div class="mt-5 body text-justify">
+                    <%= post.body.truncate(500) %>
+                    <span class="readmore" onclick=" location.href='/blog_index/show/<%= post.id %>' "> ...Read More</span>
+                </div>
+                <div class="mt-5 comments text-center">
+                    <img src="/images/views.svg" class="icon"></img>
+                    <span class="img-space"></span>
+                    <%= '  '+post.views.to_s + ' views' %>
+                    <span class="tab-space"></span>
+                    <img src="/images/comments.svg" class="icon">
+                    <span class="img-space"></span>
+                    <%= + post.comments.to_s + ' comments' %>
+                </div>
+            </div>
+        <% end %>
+    </section>
+    <section>
+        <hr/ style="border:0.5px solid #474B4F; opacity: 70%;" class="mt-5 mb-5 ml-5 mr-5">
+        <div class="text-center footer">© Tengis Buyantogtokh - 2021/03</div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>

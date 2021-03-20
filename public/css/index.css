@@ -1,0 +1,51 @@
+:root {
+    --background: #222629;
+    --title: white;
+    --nav: white;
+    --highlight: #86C232;
+    --sub: #474B4F;
+    --text: #8e9194;
+    --post-title: #61892F;
+    --light-text: #6B6E70;
+}
+
+.title {
+    color: var(--post-title);
+    font-weight: 300;
+    cursor: pointer;
+    transition: color .25s ease-in-out;
+}
+
+.title:hover {
+    color: var(--highlight);
+}
+
+.post {
+    padding-bottom: 4rem;
+}
+
+.subtext {
+    color: var(--sub);
+    font-size: 15px;
+}
+
+.body {
+    color: var(--text);
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.comments {
+    color: var(--light-text);
+}
+
+.readmore {
+    color: var(--post-title);
+    font-weight: 700;
+    cursor: pointer;
+    transition: color .2s ease-in-out;
+}
+
+.readmore:hover {
+    color: var(--highlight);
+}

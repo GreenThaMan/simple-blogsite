@@ -1,0 +1,71 @@
+root {
+    --background: #222629;
+    --title: white;
+    --nav: white;
+    --highlight: #86C232;
+    --sub: #474B4F;
+    --text: #8e9194;
+    --post-title: #61892F;
+    --light-text: #6B6E70;
+}
+
+.comments-title {
+    color: var(--highlight)
+}
+
+.comments-icon {
+    opacity:100%;
+}
+
+.comment-author {
+    border: none;
+    border-right: solid;
+    border-width: 2px;
+    border-color: var(--post-title);
+    color: var(--post-title);
+    font-weight: 700;
+}
+
+.comment-main {
+    color: var(--light-text);
+}
+
+.subtext {
+    color: var(--sub);
+    font-weight: 300;
+}
+
+.writecomment {
+    color: var(--highlight);
+    font-weight: 300;
+    font-size: 24px;
+}
+
+.comment-button {
+    background-color: var(--background);
+    color: var(--light-text);
+    border-color: var(--post-title);
+}
+
+.comment-button:hover {
+    background-color: var(--post-title);
+    border-color: var(--post-title);
+}
+
+.form {
+    background-color: var(--background);
+    border-color: var(--light-text);
+}
+
+.form:focus {
+    background-color: #222222;
+    border-color: var(--post-title);
+    box-shadow: none;
+    color: white;
+}
+
+#comment-body {
+    height: 5rem;
+    word-wrap:break-word;
+    overflow: hidden;
+}

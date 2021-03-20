@@ -1,0 +1,27 @@
+:root {
+    --background: #222629;
+    --title: white;
+    --nav: white;
+    --highlight: #86C232;
+    --sub: #474B4F;
+    --text: #8e9194;
+    --post-title: #61892F;
+    --light-text: #6B6E70;
+}
+
+.contact {
+    color: var(--text);
+    width: 20rem;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.title {
+    color: var(--post-title);
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.map {
+    opacity: 70%;
+}
