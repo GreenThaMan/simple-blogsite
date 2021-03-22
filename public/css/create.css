@@ -9,21 +9,8 @@ root {
     --light-text: #6B6E70;
 }
 
-.comments-title {
-    color: var(--highlight)
-}
-
 .comments-icon {
     opacity:100%;
-}
-
-.comment-author {
-    border: none;
-    border-right: solid;
-    border-width: 2px;
-    border-color: var(--post-title);
-    color: var(--post-title);
-    font-weight: 700;
 }
 
 .comment-main {
@@ -35,21 +22,22 @@ root {
     font-weight: 300;
 }
 
-.writecomment {
+.head-title {
     color: var(--highlight);
     font-weight: 300;
     font-size: 24px;
 }
 
-.comment-button {
+.create-button {
     background-color: var(--background);
     color: var(--light-text);
     border-color: var(--post-title);
 }
 
-.comment-button:hover {
+.create-button:hover {
     background-color: var(--post-title);
     border-color: var(--post-title);
+    cursor: pointer;
 }
 
 .form {
@@ -64,7 +52,7 @@ root {
     color: white;
 }
 
-#comment-body {
+#create-body {
     height: 5rem;
     word-wrap:break-word;
     overflow: hidden;
