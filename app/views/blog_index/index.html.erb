@@ -16,7 +16,7 @@
             </h1>
             <ul class="nav justify-content-center mt-5">
                 <li class="nav-item pr-2">
-                    <a class="nav-link" id="highlight" href="/blog_index">Home</a>
+                    <a class="nav-link" id="highlight" href="/blog_index/1">Home</a>
                 </li>
                 <li class="nav-item pr-2">
                     <a class="nav-link" href="/blog_index/about">About</a>
@@ -54,6 +54,9 @@
                 </div>
             </div>
         <% end %>
+    </section>
+    <section>
+        <%= will_paginate @posts %>
     </section>
     <section>
         <hr/ style="border:0.5px solid #474B4F; opacity: 70%;" class="mt-5 mb-5 ml-5 mr-5">

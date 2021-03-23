@@ -16,7 +16,7 @@
             </h1>
             <ul class="nav justify-content-center mt-5">
                 <li class="nav-item pr-2">
-                    <a class="nav-link" href="/blog_index">Home</a>
+                    <a class="nav-link" href="/blog_index/1">Home</a>
                 </li>
                 <li class="nav-item pr-2">
                     <a class="nav-link" href="/blog_index/about">About</a>
@@ -61,17 +61,7 @@
                 <div class="writecomment pt-4 pb-4">
                     Write a Comment
                 </div>
-                <%= simple_form_for(@comment) do |f| %>
-                <%= f.error_notification %>
-                <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-                <div class="form-group form-inputs">
-                    <%= f.input :author, class:"form-control form", id:"comment-username", placeholder:"Enter your username..." %>
-                </div>
-                <div class="form-group form-inputs">
-                    <%= f.input :body, class:"form-control form", id:"comment-body", placeholder:"Add a comment...", :input_html => {rows: 3, maxlength:300} %>
-                </div>
-                <button type="submit" class="btn btn-primary mt-3 comment-button">Comment</button>
-               <% end %>
+                <%= render partial: 'comments/form' %>
             </div>
             <div class="comments-title pt-5 mt-5">
                 <img src="/images/comments.svg" class="icon comments-icon">
@@ -79,9 +69,9 @@
                 Comments
                 <hr/ style="border:0.5px solid #474B4F; opacity: 30%;" class="">
             </div>
-            <div class="comments-main d-flex flex-column w-100 p-5">
+            <div class="comments-main d-flex flex-column w-100 pl-5 pr-5">
                 <% @comments.each do |comment| %>
-                    <div class="d-flex flex-row w-100 comment-wrapper mt-5 mb-5">
+                    <div class="d-flex flex-row w-100 mt-4 mb-4 comment-wrapper">
                         <div class="p-2 w-25 comment-author">
                             <%= comment.author %>
                             <div class="subtext">
