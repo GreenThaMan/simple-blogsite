@@ -38,6 +38,9 @@
             <div class="mt-4 subtext text-center">
                 <%= 'By ' + @post.author + ', on ' + @post.created_at.strftime("%B #{@post.created_at.day.ordinalize}, %Y") %>
             </div>
+            <div class="banner w-100">
+                <%= image_tag("/images/banner.png", :alt => "rss feed", class:"banner-image mt-5 mb-5") %>
+            </div>
             <div class="mt-5 body text-justify">
                 <%= simple_format(@post.body.gsub("\n", "\n\n")) %>
             </div>
@@ -51,7 +54,6 @@
                 <%= + @post.comments.to_s + ' comments' %>
             </div>
             <div class="mt-2 text-center">
-
             </div>
         </div>
     </section>

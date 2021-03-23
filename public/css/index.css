@@ -50,3 +50,27 @@
 .readmore:hover {
     color: var(--highlight);
 }
+
+.sort-button {
+    background-color: var(--background);
+    color: var(--light-text);
+    border-color: var(--post-title);
+}
+
+.sort-button:hover {
+    background-color: var(--post-title);
+    border-color: var(--post-title);
+    color: white;
+    cursor: pointer;
+}
+
+.sort-menu {
+    color: var(--text);
+    background-color: var(--background);
+    border-color: var(--post-title);
+}
+
+.banner-image {
+    height: auto;
+    width: 100%;
+}

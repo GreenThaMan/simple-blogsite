@@ -67,6 +67,8 @@
 }
 
 .comment-button {
+    border: solid;
+    border-width: 1px;
     background-color: var(--background);
     color: var(--light-text);
     border-color: var(--post-title);
@@ -93,4 +95,9 @@
     height: 5rem;
     word-wrap:break-word;
     overflow: hidden;
+}
+
+.banner-image {
+    height: auto;
+    width: 100%;
 }

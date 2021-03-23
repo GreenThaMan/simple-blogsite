@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/paginate.css">
 </head>
 <body style="background-color: #222629;">
     <section class="w-100 mb-5">
@@ -31,7 +32,15 @@
         </div>
     </section>
     <section class="w-100">
-        <% @posts.each do |post| %>
+        <%= form_with(url: posts_path(@posts), method: :get, local: true, class:"d-flex flex-row-reverse") do |form| %>
+            <div class="m-0">
+                <%= form.select :order, ["Latest", "Oldest", "Most Viewed", "Least Viewed"], {}, {class:"btn btn-secondary dropdown-toggle sort-menu"} %>
+                <%= form.submit "Sort", class:"sort-button ml-2 btn" %>
+            </div>
+        <% end %>
+    </section>
+    <section class="w-100">
+        <% @posts.each_with_index do |post, index| %>
             <div class="w-100 post mb-4 pl-5 pr-5 pt-5">
                 <div class="h4 title text-center" onclick="location.href='/blog_index/show/<%= post.id %>'">
                     <%= post.title %>
@@ -53,10 +62,15 @@
                     <%= + post.comments.to_s + ' comments' %>
                 </div>
             </div>
+            <% if @banner_idx.include? index %>
+            <div class="banner w-100 p-5">
+                <%= image_tag("/images/banner.png", :alt => "rss feed", class:"banner-image mt-5 mb-5") %>
+            </div>
+            <% end %>
         <% end %>
     </section>
     <section>
-        <%= will_paginate @posts %>
+        <%= will_paginate @posts, class:"apple_pagination mt-5 pb-5" %>
     </section>
     <section>
         <hr/ style="border:0.5px solid #474B4F; opacity: 70%;" class="mt-5 mb-5 ml-5 mr-5">
