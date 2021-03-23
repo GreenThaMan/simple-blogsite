@@ -15,7 +15,7 @@ class BlogIndexController < ApplicationController
     i = 0
     @banner_idx = Array.new(banners_count)
     while (i < banners_count)
-      @banner_idx[i] = rand(1..10)
+      @banner_idx[i] = rand(0..8)
       i+=1
     end
   end
