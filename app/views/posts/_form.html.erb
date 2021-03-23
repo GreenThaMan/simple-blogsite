@@ -36,27 +36,21 @@
                 Create a new post
             </div>
             </form>
-            <%= form_for(@post) do |f| %>
-                <ul>
-                    <% @post.errors.full_messages.each do |message| %>
-                        <li><%= message %></li>
-                    <% end %>
-                </ul>
-                <div class="form-group">
-                    <%= f.label :author %>
-                    <%= f.text_field :author, class: "form-control form", id:"create-username", placeholder:"Enter your name here..." %>
+            <%= simple_form_for(@post) do |f| %>
+              <%= f.error_notification %>
+              <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+              <div class="form-group form-inputs">
+                    <%= f.input :author, class: "form-control form", id:"create-username", placeholder:"Enter your name here..." %>
+              </div>
+              <div class="form-group form-inputs">
+                    <%= f.input :title, class:"form-control form", id:"create-author", placeholder:"Add your title..." %>
                 </div>
-                <div class="form-group">
-                    <%= f.label :title %>
-                    <%= f.text_field :title, class:"form-control form", id:"create-author", placeholder:"Add your title..." %>
-                </div>
-                <div class="form-group">
-                    <%= f.label :body %>
-                    <%= f.text_area :body, class:"form-control form", id:"create-contents", placeholder:"Write your blog post here...", rows:"20", maxlength:"3000" %>
+                <div class="form-group form-inputs">
+                    <%= f.input :body, class:"form-control form", id:"create-contents", placeholder:"Write your blog post here...", :input_html => {rows: 20, maxlength: 3000} %>
                     <small>Max 3000 characters.</small>
                 </div>
-                <div>
-                    <%= f.submit class:"create-button form-control w-50 mx-auto" %>
+                <div class="form-actions w-100">
+                    <%= f.button :submit, class:"create-button form-control w-100 mx-auto" %>
                 </div>
             <% end %>
         </div>

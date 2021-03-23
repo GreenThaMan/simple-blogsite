@@ -61,17 +61,17 @@
                 <div class="writecomment pt-4 pb-4">
                     Write a Comment
                 </div>
-                <form>
-                <div class="form-group">
-                    <label for="comment-username">Username</label>
-                    <input class="form-control form" id="comment-username" aria-describedby="emailHelp" placeholder="Enter your Username">
+                <%= simple_form_for(@comment) do |f| %>
+                <%= f.error_notification %>
+                <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+                <div class="form-group form-inputs">
+                    <%= f.input :author, class:"form-control form", id:"comment-username", placeholder:"Enter your username..." %>
                 </div>
-                <div class="form-group">
-                    <label for="comment-body">Comment</label>
-                    <textarea class="form-control form" id="comment-body" placeholder="Add a comment..." rows="3" maxlength="300"></textarea>
+                <div class="form-group form-inputs">
+                    <%= f.input :body, class:"form-control form", id:"comment-body", placeholder:"Add a comment...", :input_html => {rows: 3, maxlength:300} %>
                 </div>
                 <button type="submit" class="btn btn-primary mt-3 comment-button">Comment</button>
-                </form>
+               <% end %>
             </div>
             <div class="comments-title pt-5 mt-5">
                 <img src="/images/comments.svg" class="icon comments-icon">
