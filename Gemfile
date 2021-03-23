@@ -27,7 +27,8 @@ gem 'will_paginate', '~> 3.1.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-
+# Random words for Data
+gem 'random-word', '~> 1.3'
 gem 'simple_form'
 
 group :development, :test do
