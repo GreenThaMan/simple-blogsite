@@ -4,7 +4,9 @@ class GeneratePosts < ActiveRecord::Migration[6.1]
   def change
     require 'random_word_generator'
     i = 1
+    puts "Starting random word generator"
     while (i <= 1000)
+      puts i
       generate_posts
       i+=1
     end
@@ -34,6 +36,7 @@ class GeneratePosts < ActiveRecord::Migration[6.1]
       jj = 0
       while jj < c_length
         c_comment += "#{RandomWordGenerator.word}"
+        jj+=1
       end
       comment = Comment.new(
         author: c_author,
