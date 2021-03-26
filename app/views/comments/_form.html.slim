@@ -1,0 +1,6 @@
+= simple_form_for [ @post, @comment ] do |f|
+  .form-group.form-inputs
+    = f.input :author, class:"form-control form", id:"comment-username", placeholder:"Enter your username..."
+  .form-group.form-inputs
+    = f.input :body, class:"form-control form", id:"comment-body", placeholder:"Add a comment...", :input_html => {rows: 3, maxlength:300}
+  = f.submit 'Submit', class:"btn btn-primary mt-3 comment-button"

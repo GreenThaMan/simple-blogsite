@@ -1,0 +1,78 @@
+head
+  meta[charset="UTF-8"]
+  meta[http-equiv="X-UA-Compatible" content="IE=edge"]
+  meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+  link[rel="stylesheet" href="/css/bootstrap.min.css"]
+  link[rel="preconnect" href="https://fonts.gstatic.com"]
+  link[href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"]
+  link[rel="stylesheet" href="/css/main.css"]
+  link[rel="stylesheet" href="/css/show.css"]
+body[style="background-color: #222629;"]
+  section.w-100.mb-5
+    .mx-auto
+
+    h1.text-center.pb-3
+      |  Tengis Buyantogtokh 
+    ul.nav.justify-content-center.mt-5
+      li.nav-item.pr-2
+
+        a.nav-link[href="/blog_index/1"]
+          | Home
+      li.nav-item.pr-2
+
+        a.nav-link[href="/blog_index/about"]
+          | About
+      li.nav-item.pr-2
+
+        a.nav-link[href="/blog_index/create"]
+          | Create
+      li.nav-item
+
+        a.nav-link[href="/blog_index/contact"]
+          | Contact
+  section.w-100
+    .w-100.post.pl-5.pr-5.pt-2
+      .h4.title.text-center
+        = @post.title
+      .mt-4.subtext.text-center
+        = 'By ' + @post.author + ', on ' + @post.created_at.strftime("%B #{@post.created_at.day.ordinalize}, %Y")
+      .banner.w-100
+        = image_tag("/images/banner.png", :alt => "rss feed", class:"banner-image mt-5 mb-5")
+      .mt-5.body.text-justify
+        = simple_format(@post.body.gsub("\n", "\n\n"))
+      .mt-5.views.text-center
+        img.icon[src="/images/views.svg"]
+        span.img-space
+        = '  '+@post.views.to_s + ' views'
+        span.tab-space
+        img.icon[src="/images/comments.svg"]
+        span.img-space
+        = + @post.comments.to_s + ' comments'
+      .mt-2.text-center
+
+  section.w-100
+    .w-100.comments-wrapper.pl-5.pr-5
+      div
+        .writecomment.pt-4.pb-4
+          |  Write a Comment 
+        = render partial: 'comments/form'
+      .comments-title.pt-5.mt-5
+        img.icon.comments-icon[src="/images/comments.svg"]
+        span.img-space
+        |  Comments <hr/ style="border:0.5px solid #474B4F; opacity: 30%;" class=""> 
+      .comments-main.d-flex.flex-column.w-100.pl-5.pr-5
+        - @comments.each do |comment|
+          .d-flex.flex-row.w-100.mt-4.mb-4.comment-wrapper
+            .p-2.w-25.comment-author
+              = comment.author
+              .subtext
+                = 'on ' + comment.created_at.strftime("%B #{comment.created_at.day.ordinalize}, %Y")
+            .p-2.ml-5.w-75.comment-main
+              = comment.body
+  section
+    |  <hr/ style="border:0.5px solid #474B4F; opacity: 70%;" class="mt-5 mb-5 ml-5 mr-5"> 
+    .text-center.footer
+      | © Tengis Buyantogtokh - 2021/03
+  script[src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"]
+  script[src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"]
+  script[src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"]
